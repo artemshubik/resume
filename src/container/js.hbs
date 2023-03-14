@@ -1,0 +1,93 @@
+{{!
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+
+<div>
+  <h1>{{name}}</h1>
+  <p>{{description}}</p>
+  {{> title data='History' big=true}}
+  {{#with history}}
+  <p>It was created in <b><em>{{year}}</em></b> by <b><em>{{founder}}</em></b></p>
+  {{/with}}
+  {{> title data="Types"}}
+    <ul>
+      {{#each types}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  {{> title data="Syntax"}}
+    {{#with syntax}}
+      <ol>
+        <li>
+          <h4>Variables</h4>
+            <ul>
+              {{#each variables}}
+                <li>{{this}}</li>
+              {{/each}}
+            </ul>
+        </li>
+        <li>
+          <h4>Functions</h4>
+            <ul>
+              {{#each functions}}
+                <li>{{this}}</li>
+              {{/each}}
+            </ul>
+        </li>
+        <li>
+          <h4>Conditionals</h4>
+            <ul>
+              {{#each conditionals}}
+                <li>{{this}}</li>
+              {{/each}}
+            </ul>
+        </li>
+        <li>
+          <h4>Loops</h4>
+            <ul>
+              {{#each loops}}
+                <li>{{this}}</li>
+              {{/each}}
+            </ul>
+        </li>
+        <li>
+          <h4>Classes</h4>
+            <ul>
+              {{#each classes}}
+                <li>{{this}}</li>
+              {{/each}}
+            </ul>
+        </li>
+      </ol>
+    {{/with}}
+    {{> title data="Features"}}
+      {{#each features}}
+        <ul>
+          <li>{{this}}</li>
+        </ul>
+      {{/each}}
+    {{> title data="Libraries"}}
+      {{#each libraries}}
+        <ul>
+          <li>{{this}}</li>
+        </ul>
+      {{/each}}
+    {{> title data="Tools"}}
+      {{#each tools}}
+        <ul>
+          <li>{{this}}</li>
+        </ul>
+      {{/each}}
+    {{> title data="Community"}}
+      <ul>
+        {{#each community}}
+          <li><b>{{name}}</b> / {{type}}</li>
+        {{/each}}
+      </ul>
+</div>
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
