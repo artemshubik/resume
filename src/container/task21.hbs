@@ -1,0 +1,100 @@
+{{!
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+<main>
+  <div class='card'>
+    <div class='card-body'>
+      <div class='card'>
+        <div class='card-body'>
+          <h1>H1 Heading</h1>
+          <p>Paragraph</p>
+          <button class='btn btn-primary'>Primary</button>
+          <br />
+          <br />
+          <button class='btn btn-outline-primary'>Outline
+            Primary</button>
+        </div>
+      </div>
+      <br />
+      <div class='card'>
+        <div class='card-body'>
+          <h2>H2 Heading second</h2>
+          <p>Paragraph</p>
+          <button
+            class='btn btn-secondary'
+          >Secondary</button>
+          <br />
+          <br />
+          <button
+            class='btn btn-outline-secondary'
+          >Secondary</button>
+        </div>
+      </div>
+      <br />
+      <div class='card'>
+        <div class='card-body'>
+          <h3>H3 Heading subblock</h3>
+          <p>Paragraph</p>
+          <button class='btn btn-dark'>Dark</button>
+          <br />
+          <br />
+          <button class='btn btn-outline-dark'>Dark</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class='card'>
+    <div class='card-body'>
+      <div class='display-1'>Display 1 nested</div>
+      <br />
+      <div class='card'>
+        <div class='card-body'>
+          <div class='display-4'>Display 4 children</div>
+          <p>Paragraph</p>
+          <button
+            class='btn btn-outline-warning'
+          >Warning</button>
+        </div>
+      </div>
+      <br />
+      <h6>H6 Heading</h6>
+      <button class='btn btn-info'><span
+          class='text-light'
+        >Info</span></button>
+    </div>
+  </div>
+  <br />
+  <br />
+  <div class='card'>
+    <div class='card-body'>
+      <p class='text-uppercase'>Paragraph</p>
+      <p class='text-lowercase'>Paragraph</p>
+      <a href='#'>Link</a>
+      <br />
+      <br />
+      <div class='card'>
+        <div class='card-body'>
+          <ul>
+            <li>
+              <button class='btn btn-outline-light'><span
+                  class='text-primary'
+                >Link</span></button>
+            </li>
+            <br />
+            <li>
+              <button class='btn btn-outline-light'><span
+                  class='text-primary'
+                >Link</span></button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
