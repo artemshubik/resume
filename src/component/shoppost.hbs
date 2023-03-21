@@ -1,0 +1,18 @@
+{{#each cards}}
+  <div class='col-3 g-2'>
+    <div class='card text-bg-dark'>
+      <div class='card-header'>
+        <div class='card-title'>{{title}}
+          {{#if idNew}}<span
+              class='badge text-bg-success'
+            >New</span>{{/if}}
+          {{#if isTop}}<span
+              class='badge text-bg-danger'
+            >Top</span>{{/if}}</div>
+      </div>
+      <div class='card-body'>
+        {{description}}
+      </div>
+    </div>
+  </div>
+{{/each}}
