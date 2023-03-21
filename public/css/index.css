@@ -4,6 +4,7 @@ html {
 
 body {
   margin: 32px;
+
   background: #fff;
 }
 
@@ -16,7 +17,7 @@ nav {
 
 section {
   padding: 16px;
-  /* margin: 16px; */
+  margin: 16px;
 }
 
 a {
