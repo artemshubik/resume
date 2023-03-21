@@ -1,0 +1,17 @@
+<section class='row py-5'>
+  {{#with service}}
+    <div class='card text-bg-success p-3 text-center'>
+      <h2>{{title}}</h2>
+      <p>{{description}}</p>
+      {{#each buttons}}
+        <div>
+          <button
+            class='btn btn-primary'
+            link='{{link}}'
+            type='{{type}}'
+          >{{text}}</button>
+        </div>
+      {{/each}}
+    </div>
+  {{/with}}
+</section>
