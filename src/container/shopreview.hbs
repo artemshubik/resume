@@ -1,0 +1,100 @@
+{{!
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+<main>
+
+  <div class='row col-12'>
+    <div class="col-8">
+      {{#with formBlock}}
+      <h1 class='mb-3'>{{header}}</h1>
+      {{#with rating}}
+      <div class="mb-3">{{title}}: {{value}}</div>
+      {{/with}}
+
+      {{#with actionBlock}}
+      <div class='nav nav-tabs'>
+        {{#each tabs}}
+        <div class='nav-item'>
+          <div class='nav-link {{#if isActive}}active{{/if}}'>
+            {{text}}
+          </div>
+        </div>
+        {{/each}}
+      </div>
+
+      <hr class="my-5">
+      {{!-- Review section --}}
+      {{#with field}}
+      <form>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="{{placeholder}}">
+          {{#with button}}
+          <div class="input-group-btn">
+            <button class="btn btn-secondary type=" submit" link="{{link}}">
+              {{text}}
+            </button>
+          </div>
+          {{/with}}
+        </div>
+      </form>
+      {{/with}}
+      {{/with}}
+
+      <hr class="my-5">
+
+      {{#with feedbackBlock}}
+      <h2>{{title}}</h2>
+
+      <div class="col-12 mt-5">
+        {{#each buttons}}
+        {{#if isWarning}}<button class="btn btn-warning me-3">{{text}}</button>{{/if}}
+        {{#if isSuccess}}<button class="btn btn-success me-3">{{text}}</button>{{/if}}
+        {{#if isDanger}}<button class="btn btn-danger me-3">{{text}}</button>{{/if}}
+        {{/each}}
+      </div>
+      {{/with}}
+    </div>
+
+    <div class="col-4">
+      {{#with goodsInfo}}
+      <div class="card mb-3">
+        <div class="card-body">
+          <img class="mb-3" src="{{photo}}">
+          <h5">{{name}}</h5>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h4>{{price}}</h4>
+          {{#each buttons}}
+          <div class="mt-2">
+            {{#if isPrimary}}<button class="btn btn-primary">{{text}}</button>{{/if}}
+            {{#if isSecondary}}<button class="btn btn-secondary">{{text}}</button>{{/if}}
+          </div>
+          {{/each}}
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-body">
+         {{#with seller}}
+          {{title}}: <b>{{value}}</b>
+         {{/with}}
+        </div>
+      </div>
+      {{/with}}
+    </div>
+  {{/with}}
+</div>
+
+  <hr class="my-5">
+
+{{> reviewItem}}
+
+{{> shopaction}}
+
+</main>
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
