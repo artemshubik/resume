@@ -3,93 +3,93 @@
 в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
 }}
 
-<div>
+<main>
   <h1>{{name}}</h1>
   <p>{{description}}</p>
   <h2>Price: {{price}}</h2>
   <a href='/computers_tablets'>Category: {{category}}</a>
   <hr />
   {{> title data="Features:" big=true}}
-    <ul>
-      {{#with features}}
-        <li>
-          {{> title data="Processor:"}}
-          {{#with processor}}
-          <p>{{brand}} / {{model}} / {{speed}} / {{cores}} / {{cache}}</p>
-          {{/with}}
-        </li>
-        <li>
-          {{> title data="Memory:"}}
-          {{#with memory}}
-          <p>{{type}} / {{size}} / {{speed}}</p>
-          {{/with}}
-        </li>
-        <li>
-          {{> title data="Storage:"}}
-          {{#with storage}}
-          <p>{{type}} / {{size}}</p>
-          {{/with}}
-        </li>
-        <li>
-          {{> title data="Display:"}}
-          {{#with display}}
-            <p><b>Size:</b> {{size}}</p>
-            <p><b>Resolution:</b> {{resolution}}</p>
-            <p><b>Technology:</b> {{technology}}</p>
-            <p><b>Color space:</b> {{color_space}}</p>
-            <p><b>Brightness:</b> {{brightness}}</p>
-            <p><b>Refresh rate:</b> {{refresh_rate}}</p>
-          {{/with}}
-        </li>
-        <li>
-          {{> title data="Graphics:"}}
-          {{#with graphics}}
-          <p><b>{{brand}}</b> / {{model}} / {{memory}}</p>
-          {{/with}}
-        </li>
-         <li>
-          {{> title data="Ports:"}}
-          {{#each ports}}
-          <p>{{type}} / Quantity: {{count}}</p>
-            {{#each features}}
-              <ul>
-                <li>{{this}}</li>
-              </ul>
-            {{/each}}
-          {{/each}}
-        </li>
-        <li>
-          {{> title data="Battery:"}}
-          {{#with battery}}
-            <p><b>Type:</b> {{type}}</p>
-            <p><b>Capacity:</b> {{capacity}}</p>
-            <p><b>Lifetime:</b> {{life}}</p>
-          {{/with}}
-        </li>
-        <li>
-          {{> title data="Weight:"}} {{weight}}
-        </li>
-        <li>
-          {{> title data="Dimensions:"}}
-          {{#with dimensions}}
-            <p><b>Height:</b> {{height}}</p>
-            <p><b>Width:</b> {{width}}</p>
-            <p><b>Depth:</b> {{depth}}</p>
-          {{/with}}
-        </li>
-        <li>
-          {{> title data="Accessories:"}}
-          {{#each accessories}}
-            <ul>
-              <il>
-                <p><b>{{name}}</b> – ${{price}}</p>
-              </il>
-            </ul>
-          {{/each}}
-        </li>
+  <ul>
+    {{#with features}}
+    <li>
+      {{> title data="Processor:"}}
+      {{#with processor}}
+      <p>{{brand}} / {{model}} / {{speed}} / {{cores}} / {{cache}}</p>
       {{/with}}
-    </ul>
-</div>
+    </li>
+    <li>
+      {{> title data="Memory:"}}
+      {{#with memory}}
+      <p>{{type}} / {{size}} / {{speed}}</p>
+      {{/with}}
+    </li>
+    <li>
+      {{> title data="Storage:"}}
+      {{#with storage}}
+      <p>{{type}} / {{size}}</p>
+      {{/with}}
+    </li>
+    <li>
+      {{> title data="Display:"}}
+      {{#with display}}
+      <p><b>Size:</b> {{size}}</p>
+      <p><b>Resolution:</b> {{resolution}}</p>
+      <p><b>Technology:</b> {{technology}}</p>
+      <p><b>Color space:</b> {{color_space}}</p>
+      <p><b>Brightness:</b> {{brightness}}</p>
+      <p><b>Refresh rate:</b> {{refresh_rate}}</p>
+      {{/with}}
+    </li>
+    <li>
+      {{> title data="Graphics:"}}
+      {{#with graphics}}
+      <p><b>{{brand}}</b> / {{model}} / {{memory}}</p>
+      {{/with}}
+    </li>
+    <li>
+      {{> title data="Ports:"}}
+      {{#each ports}}
+      <p>{{type}} / Quantity: {{count}}</p>
+      {{#each features}}
+      <ul>
+        <li>{{this}}</li>
+      </ul>
+      {{/each}}
+      {{/each}}
+    </li>
+    <li>
+      {{> title data="Battery:"}}
+      {{#with battery}}
+      <p><b>Type:</b> {{type}}</p>
+      <p><b>Capacity:</b> {{capacity}}</p>
+      <p><b>Lifetime:</b> {{life}}</p>
+      {{/with}}
+    </li>
+    <li>
+      {{> title data="Weight:"}} {{weight}}
+    </li>
+    <li>
+      {{> title data="Dimensions:"}}
+      {{#with dimensions}}
+      <p><b>Height:</b> {{height}}</p>
+      <p><b>Width:</b> {{width}}</p>
+      <p><b>Depth:</b> {{depth}}</p>
+      {{/with}}
+    </li>
+    <li>
+      {{> title data="Accessories:"}}
+      {{#each accessories}}
+      <ul>
+        <il>
+          <p><b>{{name}}</b> – ${{price}}</p>
+        </il>
+      </ul>
+      {{/each}}
+    </li>
+    {{/with}}
+  </ul>
+</main>
 
 {{!--
 Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs

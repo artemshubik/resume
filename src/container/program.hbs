@@ -3,106 +3,146 @@
 в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
 }}
 
-<div>
+<main>
   {{#with program}}
-    {{#with excursion}}
-      <h1>{{name}}</h1>
-      <b>Location:</b>
-      {{location.city}}
-      /
-      {{location.country}}
-      <br />
-      <b>Date:</b>
-      {{date}}
-      <hr />
-      {{> title data="Program" big=true}}
-      <ol>
+  {{#with excursion}}
+  <h1>{{name}}</h1>
+  <div class="mb-2">
+    <b>Location:</b>
+    {{location.city}} / {{location.country}}
+  </div>
+  <div>
+    <b>Date:</b>
+    {{date}}
+  </div>
+  <hr />
+  {{> title data="Program:" big=true}}
+  <ol>
+    <li>
+      <div class="mb-1">
+        <b><em>{{program.[0].name}}</em></b>
+      </div>
+      <div class="mb-1">
+        Type: <em>{{program.[0].type}}</em>
+      </div>
+      <div class="mb-3">
+        Duration: <em>{{program.[0].duration}} hrs.</em>
+      </div>
+      {{> title data="Details:"}}
+      {{#with program.[0].details}}
+      {{#with museum}}
+      <div class="mb-1">
+        <b>Museum:</b> {{name}}
+      </div>
+      <div class="mb-3">
+        <b>Address:</b>
+        {{#with location}}
+        {{address}} / {{city}} / {{country}}
+        {{/with}}
+      </div>
+      {{> title data="Exibits:"}}
+      <ul>
+        {{#each exhibits}}
         <li>
-          <b><em>{{program.[0].name}}</em></b>
-          <br>
-          Type: <em>{{program.[0].type}}</em>
-          <br>
-          Duration: <em>{{program.[0].duration}} hrs.</em>
-          {{> title data="Details"}}
-          {{#with program.[0].details}}
-            {{#with museum}}
-              <b>Museum:</b> {{name}}
-              <br>
-              <b>Address:</b> 
-              {{#with location}}
-                {{address}} / {{city}} / {{country}}
-              {{/with}}
-              {{> title data="Exibits"}}
-                <ul>
-                  {{#each exhibits}}
-                    <li>
-                      <b>Name:</b> {{name}}
-                      <br>
-                      <b>Artist:</b> {{#if artist}} {{artist}} {{else}} Various artists {{/if}}
-                      <br>
-                      <b>Description:</b> {{description}}
-                      <br>
-                      <b>Audio guide:</b> {{#if audio_guide}} Yes {{else}} No {{/if}}
-                    </li>
-                    <br>
-                  {{/each}}
-                </ul>
-            {{/with}}
-            {{> title data="Guide"}}
-            {{#with guide}}
+          <div class="row mb-3 g-1">
+            <div>
               <b>Name:</b> {{name}}
-              <br>
-              <b>Language:</b> {{language}}
-              <br>
-              <b>Rating:</b> {{rating}}
-              {{/with}}
-          {{/with}}
-          <hr>
-          <br>
+            </div>
+            <div>
+              <b>Artist:</b> {{#if artist}} {{artist}} {{else}} Various artists {{/if}}
+            </div>
+            <div>
+              <b>Description:</b> {{description}}
+            </div>
+            <div>
+              <b>Audio guide:</b> {{#if audio_guide}} Yes {{else}} No {{/if}}
+            </div>
+          </div>
         </li>
-        <li>
+        {{/each}}
+      </ul>
+      {{/with}}
+      {{> title data="Guide:"}}
+      {{#with guide}}
+      <div class="row g-1">
+        <div>
+          <b>Name:</b> {{name}}
+        </div>
+        <div>
+          <b>Language:</b> {{language}}
+        </div>
+        <div>
+          <b>Rating:</b> {{rating}}
+        </div>
+      </div>
+      {{/with}}
+      {{/with}}
+      <hr>
+    </li>
+    <li>
+      <div class="row g-1 mb-3">
+        <div>
           <b><em>{{program.[1].name}}</em></b>
-          <br>
+        </div>
+        <div>
           Type: <em>{{program.[1].type}}</em>
-          <br>
+        </div>
+        <div>
           Duration: <em>{{program.[1].duration}} hrs.</em>
-          {{> title data="Details"}}
-            {{#with program.[1].details}}
-              {{#with venue}}
-              <b>Venue:</b> {{name}}
-                <br>
-                <b>Address:</b> 
-                {{#with location}}
-                  {{address}} / {{city}} / {{country}}
-                {{/with}}
-              {{/with}}
-              {{> title data="Performers"}}
-              <ul>
-                  {{#each performers}}
-                    <li>
-                      <b>Name:</b> {{name}}
-                      <br>
-                      <b>Type:</b> {{type}}
-                    </li>
-                    <br>
-                  {{/each}}
-                </ul>
-              {{> title data="Guide"}}
-              {{#with guide}}
-                <b>Name:</b> {{name}}
-                <br>
-                <b>Language:</b> {{language}}
-                <br>
-                <b>Rating:</b> {{rating}}
-              {{/with}}
-            {{/with}}
-          <hr>
-          <br>
+        </div>
+      </div>
+      {{> title data="Details:"}}
+      {{#with program.[1].details}}
+      {{#with venue}}
+      <div class="row g-1 mb-3">
+        <div>
+          <b>Venue:</b> {{name}}
+        </div>
+        <div>
+          <b>Address:</b>
+          {{#with location}}
+          {{address}} / {{city}} / {{country}}
+          {{/with}}
+        </div>
+      </div>
+      {{/with}}
+      {{> title data="Performers:"}}
+      <ul>
+        {{#each performers}}
+        <li>
+          <div class="row g-1 mb-3">
+            <div>
+              <b>Name:</b> {{name}}
+            </div>
+            <div>
+              <b>Type:</b> {{type}}
+            </div>
+          </div>
         </li>
-      </ol>
-    {{/with}}
+        {{/each}}
+      </ul>
+      {{> title data="Guide:"}}
+      {{#with guide}}
+      <div class="row g-1">
+        <div>
+          <b>Name:</b> {{name}}
+        </div>
+        <div>
+          <b>Language:</b> {{language}}
+        </div>
+        <div>
+          <b>Rating:</b> {{rating}}
+        </div>
+      </div>
+
+      {{/with}}
+      {{/with}}
+      <hr>
+    </li>
+  </ol>
   {{/with}}
-</div>
+  {{/with}}
+</main>
 
 {{!--
 Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs

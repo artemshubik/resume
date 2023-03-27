@@ -1,25 +1,10 @@
-{{!--
+{{!
 Це код container файлу для summary сторінки,
 в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
---}}
-
-
-
-
-{{#with main}}
-<main>
-  <section class="row col-12">
-    {{> title data=summary.title big=true}}
-    <p>{{summary.text}}</p>
-    {{#with experience}}
-    {{> title data=title}}
-    <p>{{text}}</p>
-    {{/with}}
-  </section>
-</main>
-{{/with}}
-
-
+}}
+<section>
+  <h1>SOME SHIT</h1>
+</section>
 {{!--
 Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
 Адже наш layout/default.hbs має вже структуру HTML
