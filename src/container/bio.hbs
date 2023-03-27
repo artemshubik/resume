@@ -3,8 +3,8 @@
 в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
 }}
 
-<div>
-  <h1>{{name}}</h1>
+<main>
+  <h1 class="mb-3">{{name}}</h1>
   <p><b>Was born in</b>
     <em>{{birthdate}}</em>
     in
@@ -26,7 +26,7 @@
   {{> title data="Known for" big=true}}
   <ul>
     {{#each known_for}}
-      <li>{{this}}</li>
+    <li class="mb-2">{{this}}</li>
     {{/each}}
   </ul>
   {{> title data="Education" big=true}}
@@ -35,86 +35,113 @@
     <b>Degree:</b>
     <em>{{degree}}</em>
   </p>
-   <p>
+  <p>
     <b>Field:</b>
     <em>{{field}}</em>
   </p>
-   <p>
+  <p>
     <b>Institution:</b>
     <em>{{institution}}</em>
   </p>
-   <p>
+  <p>
     <b>Year:</b>
     <em>{{year}}</em>
   </p>
   {{/each}}
-  {{> title data="Notable publications" big=true}}
+  <div>
+    {{> title data="Notable publications" big=true}}
     <ul>
       {{#each notable_publications}}
-        <li>
-          <p><b>{{title}}</b> ({{year}})
-          <br>
-          Publisher: {{publisher}}</p>
-        </li>
+      <li class="mb-2">
+        <div class="mb-1"><b>{{title}}</b> ({{year}})</div>
+        <div>
+          Publisher: {{publisher}}
+        </div>
+      </li>
       {{/each}}
     </ul>
-   {{> title data="Partners" big=true}}
+  </div>
+  <div>
+    {{> title data="Partners" big=true}}
     <ul>
       {{#each partners}}
-        <li>
-          <p><b>{{name}}</b> ({{years}}) – {{relationship}}</p>
-        </li>
+      <li>
+        <p><b>{{name}}</b> ({{years}}) – {{relationship}}</p>
+      </li>
       {{/each}}
     </ul>
+  </div>
+  <div>
     {{> title data="Awards" big=true}}
-      <ul>
-        {{#each awards}}
-          <li>
-            <p><b>{{title}}</b> ({{year}}) <em>"{{description}}"</em></p>
-          </li>
-        {{/each}}
-      </ul>
+    <ul>
+      {{#each awards}}
+      <li>
+        <p><b>{{title}}</b> ({{year}}) <em>"{{description}}"</em></p>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+  <div>
     {{> title data="Influences" big=true}}
-      <ul>
-        {{#each influences}}
-          <li>{{this}}</li>
-        {{/each}}
-      </ul>
+    <ul>
+      {{#each influences}}
+      <li class="mb-1">{{this}}</li>
+      {{/each}}
+    </ul>
+  </div>
+  <div>
     {{> title data="Influenced" big=true}}
-      <ul>
-        {{#each influenced}}
-          <li>{{this}}</li>
-        {{/each}}
-      </ul>
+    <ul>
+      {{#each influenced}}
+      <li class="mb-1">{{this}}</li>
+      {{/each}}
+    </ul>
+  </div>
+  <div>
     {{> title data="Quotes" big=true}}
-      <ul>
-        {{#each quotes}}
-          <li><blockquote>{{this}}</blockquote></li>
-        {{/each}}
-      </ul>
+    <ul>
+      {{#each quotes}}
+      <li>
+        <blockquote>{{this}}</blockquote>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+  <div>
     {{> title data="Major discoveries" big=true}}
-      <ul>
-        {{#each major_discoveries}}
-          <li>
-            <p><b>{{title}}</b> ({{year}})
-            <br>
-            <em>"{{description}}"</em></p>
-          </li>
-        {{/each}}
-      </ul>
-    {{> title data="Contributions" big=true}}
-      <ul>
-        {{#with contributions}}
-          <li>
-            <p><b>{{title}}</b> ({{year}}) <em><b>Field:</b> {{field}}</em>
-            <br>
-            <blockquote>"{{description}}"</blockquote></p>
-          </li>
-        {{/with}}
-      </ul>
-    
+    <ul>
+      {{#each major_discoveries}}
+      <li>
+        <div class="mb-2">
+          <b>{{title}}</b> ({{year}})
+        </div>
+        <div>
+          <em>"{{description}}"</em>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
 
-</div>
+  <div>
+    {{> title data="Contributions" big=true}}
+    <ul>
+      {{#with contributions}}
+      <li>
+        <div class="mb-1">
+          <b>{{title}}</b> ({{year}})<em>
+        </div>
+        <div class="mb-1">
+          <b>Field:</b> {{field}}</em>
+        </div>
+        <div>
+          <blockquote>"{{description}}"</blockquote>
+        </div>
+      </li>
+      {{/with}}
+    </ul>
+  </div>
+</main>
 
 {{!--
 Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs

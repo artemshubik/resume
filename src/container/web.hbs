@@ -3,81 +3,82 @@
 в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
 }}
 
-<div>
+<main>
   <h1>Languages</h1>
   <hr />
   <dl>
     {{#each web.languages}}
-      <dt>
-        <h2>{{name}}</h2>
-      </dt>
-      <p>Version: {{version}}</p>
-      <dd>{{description}}</dd>
-      {{#if elements}} <h3>Elements:</h3> {{/if}}
-      {{#each elements}}
+    <dt>
+      <h2>{{name}}</h2>
+    </dt>
+    <p>Version: {{version}}</p>
+    <dd>{{description}}</dd>
+    {{#if elements}} <h3>Elements:</h3> {{/if}}
+    {{#each elements}}
+    <ul>
+      <li>
+        <p><strong>{{name}}</strong>
+          –
+          {{description}}</p>
+        <h3>Attributes:</h3>
+        {{#each attributes}}
         <ul>
           <li>
             <p><strong>{{name}}</strong>
               –
               {{description}}</p>
-            <h3>Attributes:</h3>
-            {{#each attributes}}
-              <ul>
-                <li>
-                  <p><strong>{{name}}</strong>
-                    –
-                    {{description}}</p>
-                </li>
-              </ul>
-            {{/each}}
           </li>
         </ul>
-      {{/each}}
-      {{#if properties}} <h3>Properties:</h3> {{/if}}
-      {{#each properties}}
+        {{/each}}
+      </li>
+    </ul>
+    {{/each}}
+    {{#if properties}} <h3>Properties:</h3> {{/if}}
+    {{#each properties}}
+    <ul>
+      <li>
+        <p><strong>{{name}}</strong>
+          –
+          {{description}}</p>
+        <h3>Values:</h3>
+        {{#each values}}
+        <ul>
+          <li>
+            <p><strong>{{value}}</strong>
+              –
+              {{description}}</p>
+          </li>
+        </ul>
+        {{/each}}
+      </li>
+    </ul>
+    {{/each}}
+    {{#if functions}} <h3>Functions:</h3> {{/if}}
+    {{#each functions}}
+    <ul>
+      <li>
+        <p><strong>{{name}}</strong>
+          –
+          {{description}}</p>
+        <h3>Parameters:</h3>
+        {{#each parameters}}
         <ul>
           <li>
             <p><strong>{{name}}</strong>
+              <em>(Type:{{type}})</em>
               –
-              {{description}}</p>
-            <h3>Values:</h3>
-            {{#each values}}
-              <ul>
-                <li>
-                  <p><strong>{{value}}</strong>
-                    –
-                    {{description}}</p>
-                </li>
-              </ul>
-            {{/each}}
+              {{description}}
+            </p>
           </li>
         </ul>
-      {{/each}}
-      {{#if functions}} <h3>Functions:</h3> {{/if}}
-      {{#each functions}}
-        <ul>
-          <li>
-            <p><strong>{{name}}</strong>
-              –
-              {{description}}</p>
-            <h3>Parameters:</h3>
-            {{#each parameters}}
-              <ul>
-                <li>
-                  <p><strong>{{name}}</strong>
-                    <em>(Type:{{type}})</em>
-                    –
-                    {{description}}</p>
-                </li>
-              </ul>
-            {{/each}}
-          </li>
-        </ul>
-      {{/each}}
-      <hr />
+        {{/each}}
+      </li>
+    </ul>
+    {{/each}}
+    <hr />
     {{/each}}
   </dl>
-</div>
+</main>
 
 {{!--
 Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
